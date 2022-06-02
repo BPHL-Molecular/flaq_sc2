@@ -101,7 +101,7 @@ for s in samples:
     raw_reads = int(raw_reads)
 
     #Run fastqc on original reads 
-    subprocess.run('singularity exec -B $(pwd):/data /apps/staphb-toolkit/containers/fastqc_0.11.8.sif fastqc ' + sample_dir + '*.fastq.gz --threads ' + threads + ' --outdir ' + sample_dir, shell=True, stdout=out_log, stderr=err_log, check=True)
+    subprocess.run('singularity exec -B $(pwd):/data /apps/staphb-toolkit/containers/fastqc_0.11.9.sif fastqc ' + sample_dir + '*.fastq.gz --threads ' + threads + ' --outdir ' + sample_dir, shell=True, stdout=out_log, stderr=err_log, check=True)
     #Rename fastqc output files
     subprocess.run('mv ' + sample_dir + s + '_1_fastqc.html ' + sample_dir + s + '_1_original_fastqc.html', shell=True, check=True)
     subprocess.run('mv ' + sample_dir + s + '_1_fastqc.zip ' + sample_dir + s + '_1_original_fastqc.zip', shell=True, check=True)
@@ -122,7 +122,7 @@ for s in samples:
     subprocess.run('rm ' + sample_dir + '*.rmadpt.fq.gz', shell=True, check=True)
 
     #Run fastqc on clean forward and reverse reads
-    subprocess.run('singularity exec -B $(pwd):/data /apps/staphb-toolkit/containers/fastqc_0.11.8.sif fastqc ' + sample_dir + '*.fq.gz --threads ' + threads, shell=True, stdout=out_log, stderr=err_log, check=True)
+    subprocess.run('singularity exec -B $(pwd):/data /apps/staphb-toolkit/containers/fastqc_0.11.9.sif fastqc ' + sample_dir + '*.fq.gz --threads ' + threads, shell=True, stdout=out_log, stderr=err_log, check=True)
     #Rename fastqc output files
     subprocess.run('mv ' + sample_dir + s + '_1_fastqc.html ' + sample_dir + s + '_1_clean_fastqc.html', shell=True, check=True)
     subprocess.run('mv ' + sample_dir + s + '_1_fastqc.zip ' + sample_dir + s + '_1_clean_fastqc.zip', shell=True, check=True)
