@@ -2,7 +2,7 @@
 
 #Author: Sarah Schmedes
 #Email: sarah.schmedes@flhealth.gov
-#Version 2.6.2: Uses local containers, VADR for error flags, reports pangolin output in main report
+#Uses local containers, VADR for error flags, reports pangolin output in main report
 '''
 This program takes in Illumina paired-end fastqs using the ARTIC primer schemes for SARS-CoV-2
 and generates a consensus assembly by using a reference-based assembly method by mapping read to
@@ -18,18 +18,21 @@ import pandas as pd
 import re
 import os.path
 
+version = '2.6.7'
+
 #Parse arguments, get path for fastqs, primer version
 parser = argparse.ArgumentParser(usage='flaq_sc2.py <input_dir> [options]')
 parser.add_argument('input', help='path to dir with fastqs')
-parser.add_argument('--primer_bed', help='path to ARTIC SC2 primer bed')
-parser.add_argument('--lib_frag', default='frag', choices=['no_frag', 'frag'], help='specify if input amplicons were fragmented, (default: no_frag)') 
-parser.add_argument('--threads', default=8, dest='threads', help='specify number of threads, (default: %(default)s)')
-parser.add_argument('--ref_fasta', help='path to reference fasta')
-parser.add_argument('--ref_gff', help='path to reference gff')
-parser.add_argument('--sotc', help='comma separated list of SOTCs to screen (e.g., S:L452R,S:E484K')
-parser.add_argument('--pango_path', help='path to pangolin container')
-parser.add_argument('--pangolin', help='pangolin version (e.g., v2.3)')
-parser.add_argument('--pangolin_data', help='pangolin-data version (e.g., v1.3')
+parser.add_argument('--primer_bed', help='path to ARTIC SC2 primer bed', required=True)
+parser.add_argument('--lib_frag', default='frag', choices=['no_frag', 'frag'], help='specify if input amplicons were fragmented, (default: no_frag)', required=True) 
+parser.add_argument('--threads', default=8, dest='threads', help='specify number of threads, (default: %(default)s)', required=True)
+parser.add_argument('--ref_fasta', help='path to reference fasta', required=True)
+parser.add_argument('--ref_gff', help='path to reference gff', required=True)
+parser.add_argument('--sotc', help='comma separated list of SOTCs to screen (e.g., S:L452R,S:E484K', required=True)
+parser.add_argument('--pango_path', help='path to pangolin container', required=True)
+parser.add_argument('--pangolin', help='pangolin version (e.g., v2.3)', required=True)
+parser.add_argument('--pangolin_data', help='pangolin-data version (e.g., v1.3', required=True)
+parser.add_argument('--version', help='print version')
 
 if len(sys.argv[1:]) == 0:
     parser.print_help()
@@ -37,12 +40,16 @@ if len(sys.argv[1:]) == 0:
 
 args = parser.parse_args()
 
+if args.version:
+    print("This is flaq_sc2 version " + version)
+    parser.exit()
+
 input_dir = os.path.abspath(args.input) + '/'
-primers = args.primer_bed
+primers = os.path.abspath(args.primer_bed)
 frag = args.lib_frag
 threads = str(args.threads)
-ref = args.ref_fasta
-gff = args.ref_gff
+ref = os.path.abspath(args.ref_fasta)
+gff = os.path.abspath(args.ref_gff)
 sotc_v = args.sotc
 sotc_v = sotc_v.split(',')
 pango_path = args.pango_path
