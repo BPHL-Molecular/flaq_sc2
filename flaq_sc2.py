@@ -18,8 +18,6 @@ import pandas as pd
 import re
 import os.path
 
-version = '2.6.7'
-
 #Parse arguments, get path for fastqs, primer version
 parser = argparse.ArgumentParser(usage='flaq_sc2.py <input_dir> [options]')
 parser.add_argument('input', help='path to dir with fastqs')
@@ -32,17 +30,13 @@ parser.add_argument('--sotc', help='comma separated list of SOTCs to screen (e.g
 parser.add_argument('--pango_path', help='path to pangolin container', required=True)
 parser.add_argument('--pangolin', help='pangolin version (e.g., v2.3)', required=True)
 parser.add_argument('--pangolin_data', help='pangolin-data version (e.g., v1.3', required=True)
-parser.add_argument('--version', help='print version')
+parser.add_argument('--version', action='version', version='This is flaq_sc2: Version 2.6.7', help='print version')
 
 if len(sys.argv[1:]) == 0:
     parser.print_help()
     parser.exit()
 
 args = parser.parse_args()
-
-if args.version:
-    print("This is flaq_sc2 version " + version)
-    parser.exit()
 
 input_dir = os.path.abspath(args.input) + '/'
 primers = os.path.abspath(args.primer_bed)
