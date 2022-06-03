@@ -16,4 +16,4 @@ module load singularity
 
 primer_version="4.1"
 
-python flaq_sc2.py fastqs/ --primer_bed primers/ARTIC-V${primer_version}.bed --lib_frag frag --threads $SLURM_CPUS_ON_NODE --ref_fasta reference/nCoV-2019.reference.fasta --ref_gff reference/GCF_009858895.2_ASM985889v3_genomic.gff --sotc S:L452R,S:E484K  --pango_path /apps/staphb-toolkit/containers/pangolin_4.0.6-pdata-1.8-constellations-0.1.10.sif --pangolin v4.0.6 --pangolin_data v1.8-constellations-0.1.10 
+python flaq_sc2.py fastqs/ --primer_bed primers/ARTIC-V${primer_version}.bed --lib_frag frag --threads $SLURM_CPUS_ON_NODE --ref_fasta reference/nCoV-2019.reference.fasta --ref_gff reference/GCF_009858895.2_ASM985889v3_genomic.gff --sotc S:L452R,S:E484K  --pango_path /apps/staphb-toolkit/containers/pangolin_4.0.6-pdata-1.9.sif --pangolin v4.0.6 --pangolin_data v1.9 
