@@ -12,7 +12,7 @@
 #SBATCH --error=flaq_sc2.%j.err
 
 #Run script/command and use $SLURM_CPUS_ON_NODE
-module load singularity
+module load apptainer
 
 primer_version="4.1"
 
