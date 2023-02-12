@@ -2,7 +2,7 @@
 FL BPHL's SARS-CoV-2 (SC2) analysis pipeline for Illumina paired-end, whole-genome tiled-amplicon data. 
 
 ## About
-FLAQ-SC2 was developed to analyze Illumina paired-end, whole-genome tiled-amplicon data (i.e., (ARTIC protocol)[https://artic.network/ncov-2019]) from SC2-positive clinical specimens. The pipeline generates annotated, consensus assemblies along with reports including read/mapping/assembly quality metrics, Pango lineage, and quality flags to support screening samples prior to submissions to public repositories (e.g., GISAID, NCBI Genbank). The current version will run only on [HiPerGator](https://www.rc.ufl.edu/about/hipergator/)(HPG) using local Singularity containers for each pipeline process.
+FLAQ-SC2 was developed to analyze Illumina paired-end, whole-genome tiled-amplicon data (i.e., [ARTIC protocol](https://artic.network/ncov-2019)) from SC2-positive clinical specimens. The pipeline generates annotated, consensus assemblies along with reports including read/mapping/assembly quality metrics, Pango lineage, and quality flags to support screening samples prior to submissions to public repositories (e.g., GISAID, NCBI Genbank). The current version will run only on [HiPerGator](https://www.rc.ufl.edu/about/hipergator/)(HPG) using local Singularity containers for each pipeline process.
 
 Stay tuned for FLAQ-SC2's upgrade to [Daytona](https://github.com/BPHL-Molecular/Daytona), a platform agnostic [Nextflow](https://www.nextflow.io/) workflow. Daytona is currently under active development.
 
