@@ -57,6 +57,11 @@ sbatch sbatch_flaq_sc2.sh
 - [Fastqc](https://github.com/s-andrews/FastQC)
 - [Trimmomatic](https://github.com/usadellab/Trimmomatic)
 - [BBDuk](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbduk-guide/)
+- [BWA](https://github.com/lh3/bwa)
+- [Samtools](https://github.com/samtools/samtools)
+- [iVar](https://github.com/andersen-lab/ivar)
+- [Pangolin](https://github.com/cov-lineages/pangolin)
+- [VADR](https://github.com/ncbi/vadr)
 
 ## Primary outputs
 
