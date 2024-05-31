@@ -21,7 +21,7 @@ The iVar Singularity container on HiPerGator does not run consistently. Instead,
 Git is already installed in your HPG environment upon login.
 
 ## Primers
-The default primer in the pipeline is ARTIC-V4.1.bed. If your SARS-CoV-2 data use different ARTIC primer, you need change the line "primers="4.1"" in sbatch_flaq_sc2.sh. For example, if ARTIC-V5.3.2.bed is used, primers="4.1" should be repalced with primers="5.3.2".
+The default primer in the pipeline is ARTIC-V4.1.bed. If your SARS-CoV-2 data use different ARTIC primer, you need change the line "primers="4.1"" in sbatch_flaq_sc2.sh. For example, if ARTIC-V5.3.2 is used, primers="4.1" should be repalced with primers="5.3.2".
 ## Usage
 
 For first time use, clone this repository to a directory in blue on HPG, such as in /blue/bphl-\<state\>/\<user\>/repos/bphl-molecular/.
