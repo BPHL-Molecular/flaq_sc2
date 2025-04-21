@@ -16,4 +16,5 @@ module load apptainer
 
 primer_version="4.1"
 
-python flaq_sc2.py fastqs/ --primer_bed primers/ARTIC-V${primer_version}.bed --lib_frag frag --threads $SLURM_CPUS_ON_NODE --ref_fasta reference/nCoV-2019.reference.fasta --ref_gff reference/GCF_009858895.2_ASM985889v3_genomic.gff --sotc S:L452R,S:E484K  --pango_path /blue/bphl-florida/share/singularity/pangolin_4.3.1-pdata-1.31.sif --pangolin v4.3.1 --pangolin_data v1.31
+#Pangolin-related arguments/parameters are now optional. By default, the pipeline will now pull the latest pangolin and pangolin-data versions, as well as nextclade.
+python flaq_sc2.py fastqs/ --primer_bed primers/ARTIC-V${primer_version}.bed --lib_frag frag --threads $SLURM_CPUS_ON_NODE --ref_fasta reference/nCoV-2019.reference.fasta --ref_gff reference/GCF_009858895.2_ASM985889v3_genomic.gff --sotc S:L452R,S:E484K
